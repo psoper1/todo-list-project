@@ -1,7 +1,8 @@
 import React from 'react';
+import Header from './components/Header'
 
 function App() {
-return React.createElement("h1", {className: "test"}, "Test");
+<Header />
 }
 
 export default App;
