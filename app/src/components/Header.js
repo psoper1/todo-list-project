@@ -1,7 +1,5 @@
-import React from 'react';
-
-function Header() {
-return React.createElement("h1", {className: "test"}, "To-Do List");
+function Header({ notes }) {
+return <h1 className={`${notes.length > 0 ? 'text-danger' : 'text-info'}`}>Note taking app</h1>;
 }
 
 export default Header;
