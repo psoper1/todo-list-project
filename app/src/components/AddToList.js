@@ -4,7 +4,7 @@ function AddToList({ setNotes, notes }) {
   const [value, setValue] = useState('');
   function insertNote() {
     console.log('Clicked')
-    setNotes([...notes, { text: value, id: Date.now() }]);
+    setNotes([...notes, { text: value, id: Date.now(), done: false }]);
   }
   return (
     <>

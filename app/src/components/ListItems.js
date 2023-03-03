@@ -13,15 +13,18 @@ function ListItems({ notes, setNotes }) {
 
     if (event.target.checked) {
       console.log('Checked');
+      notes.done = true;
+      
     } else {
       console.log('not checked');
+      notes.done = false;
     }
     setChecked(checked => !checked);
   }
 
   return (
     <ul>
-      {notes.map(note => <li className={`${checked ? "text-decoration-line-through" : ""}`} key={note.text}><input value={checked} onChange={handleChange} type="checkbox" /> {note.text}<button onClick={() => removeItem(note.id)}>-</button></li>)}
+      {notes.map(note => <li className={`${notes.done && note.id ? "text-decoration-line-through" : ""}`} key={note.text}><input value={note.done} onChange={handleChange} type="checkbox" /> {note.text}<button onClick={() => removeItem(note.id)}>-</button></li>)}
     </ul>
   )
 }
