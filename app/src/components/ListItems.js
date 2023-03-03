@@ -9,12 +9,10 @@ function ListItems({ notes, setNotes }) {
   }
 
   const [checked, setChecked] = useState(false);
-
   const handleChange = event => {
 
     if (event.target.checked) {
       console.log('Checked');
-
     } else {
       console.log('not checked');
     }
@@ -22,7 +20,7 @@ function ListItems({ notes, setNotes }) {
   }
 
   return (
-    <ul>
+    <ul className="remove">
       {notes.map(note => <li className={`${checked ? "text-decoration-line-through" : ""}`} key={note.text}><input value={checked} onChange={handleChange} type="checkbox" /> {note.text}<button onClick={() => removeItem(note.id)}>-</button></li>)}
     </ul>
   )
