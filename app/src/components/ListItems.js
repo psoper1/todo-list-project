@@ -16,13 +16,27 @@ function ListItems({ notes, setNotes }) {
     } else {
       console.log('not checked');
     }
-    setChecked(current => !current);
+    setChecked(checked => !checked);
   }
 
   return (
-    <ul className="remove">
+    <ul>
       {notes.map(note => <li className={`${checked ? "text-decoration-line-through" : ""}`} key={note.text}><input value={checked} onChange={handleChange} type="checkbox" /> {note.text}<button onClick={() => removeItem(note.id)}>-</button></li>)}
     </ul>
   )
 }
 export default ListItems;
+
+// const [checked, setChecked] = useState([]);
+//   const handleChange = event => {
+//     let updatedList = [...checked];
+
+//     if (event.target.checked) {
+//       console.log('Checked');
+//       updatedList = [...checked, event.target.value];
+//     } else {
+//       console.log('not checked');
+//       updatedList.splice(checked.indexOf(event.target.value), 1);
+//     }
+//     setChecked(updatedList);
+//   }
